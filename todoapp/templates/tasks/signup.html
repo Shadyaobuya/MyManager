@@ -1,0 +1,22 @@
+{%extends "tasks/layout.html"%}
+{%block body%}
+<h1 style="text-align: center;">Welcome</h1>
+
+
+<form method="POST" class="form-group" style="margin-left: 40%; margin-top: 4%;">
+    {%csrf_token%}
+  {{form.as_p}}
+    <button type="submit" class="btn btn-outline-warning mt-3" >Sign up</button>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+</form>
+
+
+
+{%endblock%}

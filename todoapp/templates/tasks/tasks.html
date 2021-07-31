@@ -1,0 +1,54 @@
+{%extends "tasks/layout.html"%}
+{%block body%}
+
+{%if request.user.is_authenticated%}
+  <nav>
+      <a class="link" href="{%url 'home'%}"> Home</a>
+      <a class="link" href="{%url 'logout'%}"> logout</a>
+      
+    </nav>
+  <h3 style="text-align: center;">Hello {{request.user.first_name}}</h3>
+
+  <div class="card text-dark bg-warning mb-3"  id="Card-body">
+    <div class="card-body">
+      <h4 class="card-title">You have {{count}} incomplete task{{count|pluralize}}</h4>
+      <hr style="border: 2px solid rgb(0, 0, 0); background: black;">
+      <form id="searchForm" method="GET" class="mb-4">
+        <input type="text" name="search_item" placeholder="Search Task">
+        <input type="submit" value="Search">
+    </form>
+      <p class="card-text">
+      {% for task in all_tasks %}
+      {%if task.completed%}
+      <ul type="square" class="bg-secondary text-dark">
+        <li ><s>{{ task.task_title}}</s>
+          <a id="addlink" href="{% url 'delete_task' task.id%}">Delete Task</a>
+          <a id="addlink" href="{% url 'update_task' task.id%}">Edit Task</a>
+        </li>
+      </ul>
+
+      {%else%}
+
+
+      <ul type="square" class="bg-secondary text-dark">
+        <li >{{ task.task_title}}
+          <a id="addlink" href="{% url 'delete_task' task.id%}">Delete Task</a>
+          <a id="addlink" href="{% url 'update_task' task.id%}">Edit Task</a>
+        </li>
+      </ul>
+      {%endif%}
+       
+
+    {%empty%}     
+    <h3>No Tasks</h3>
+      
+    {%endfor%}
+      </p>
+      <button class="btns btn btn-outline-dark mt-3" style="margin-left: 40%;"><a href="{%url 'addtask'%}">Add Task</a></button>
+      <p class="card-text"><small class="text-muted">Last update {{task.created}}</small></p>
+    </div>
+  </div>
+      
+        
+{%endif%}
+{%endblock%}

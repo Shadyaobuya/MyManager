@@ -1,0 +1,20 @@
+{%extends "tasks/layout.html"%}
+{%block body%}
+
+        <h1 style="text-align: center;" class="display-4">My Manager</h1>
+        <!-- <h2 style="text-align: center; margin-top: 4%;" class="display-5">Log In Page</h2> -->
+       <div class="logincard">
+        <form method="POST" class="form-group" style="margin-left: 40%; margin-top: 4%;">
+            {%csrf_token%}
+            <input type="text" placeholder="username" name="username" class="form-control" style="width: 300px;"><br>
+            <input type="password" placeholder="password" name="password" class="form-control" style="width: 300px;"><br>
+            
+            <button type="submit" class="btn btn-warning mt-3" >Log In</button><br>
+            <a href="{%url 'signup'%}" style="margin-right: 35%;">Dont have an Account? Sign up</a>
+        </form>
+        
+    </div>
+        
+
+
+{%endblock%}

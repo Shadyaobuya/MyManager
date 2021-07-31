@@ -1,0 +1,54 @@
+{%extends "tasks/layout.html"%}
+{%block body%}
+
+{%if request.user.is_authenticated%}
+
+<nav>
+  <a class="link" href="{%url 'home'%}"> Home</a>
+  <a class="link" href="{%url 'logout'%}"> logout</a>
+</nav>
+
+{%else%}
+<a style="float: right;" class="link" href="{%url 'login'%}"> Login</a>
+
+{%endif%}
+
+<h2 >My Manager</h2>
+
+
+
+
+<div class="card-deck">
+    <div class="card text-white bg-warning mb-3" >
+      <div class="card-body">
+        <h5 class="card-title">My Daily Tasks</h5>
+        <p class="card-text">Have daily tasks To manage? Write down your daily tasks and schedule times. Let us help you</p>
+        <button class="btns btn btn-outline-dark mt-3"><a href="{% url 'addtask'%}">Add Task</a></button>
+        <button class="btns btn btn-outline-dark mt-3"><a href="{% url 'index'%}">View Tasks</a></button>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card text-white bg-info mb-3">
+      <div class="card-body">
+        <h5 class="card-title">My Weekly Tasks</h5>
+        <p class="card-text">Have weekly tasks To manage? Write down your daily tasks and schedule times. Let us help you</p>
+        <button class="btns btn btn-outline-dark mt-3"><a href="{% url 'addtask'%}">Add Task</a></button>
+        <button class="btns btn btn-outline-dark mt-3"><a href="{% url 'index'%}">View Tasks</a></button>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        
+      </div>
+    </div>
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">My Monthly Tasks</h5>
+        <p class="card-text">Have monthly goals you'd like to keep track of? Write down your monthly tasks and schedule your due date and we will help you manage your tasks.</p>
+        <button class="btns btn btn-outline-dark mt-3"><a href="{% url 'addtask'%}">Add Task</a></button>
+        <button class="btns btn btn-outline-dark mt-3"><a href="{% url 'index'%}">View Task</a></button>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+
+
+
+{%endblock%}

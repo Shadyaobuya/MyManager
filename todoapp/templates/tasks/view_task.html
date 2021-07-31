@@ -1,0 +1,15 @@
+{%extends "tasks/layout.html"%}
+{%block body%}
+<nav>
+    <a class="link" href="{%url 'home'%}"> Home</a>
+   
+    
+  </nav>
+<h1>Title : {{task}}</h1>
+{{form.as_p}}
+
+
+
+
+
+{%endblock%}
