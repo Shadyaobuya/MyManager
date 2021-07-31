@@ -27,6 +27,8 @@ SECRET_KEY = 'django-insecure-mluh!g#r_hq_0v2#&-n7-52-hednwub-4dz1742&iw43p$=w2z
 DEBUG = False
 
 ALLOWED_HOSTS = ['my-manager-to-do-app.herokuapp.com']
+# ALLOWED_HOSTS = []
+
 
 
 # Application definition
